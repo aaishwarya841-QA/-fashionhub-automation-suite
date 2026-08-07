@@ -1,0 +1,27 @@
+version: '3.8'
+
+# Spins up the FashionHub demo app locally and runs the test suite against
+# it in one command:  docker compose up --build --abort-on-container-exit
+services:
+  fashionhub-app:
+    image: pocketaces2/fashionhub-demo-app:latest
+    ports:
+      - '4000:4000'
+    healthcheck:
+      test: ['CMD', 'wget', '-qO-', 'http://localhost:4000/fashionhub/']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  tests:
+    build: .
+    depends_on:
+      fashionhub-app:
+        condition: service_healthy
+    environment:
+      - TEST_ENV=local
+      - BASE_URL=http://fashionhub-app:4000/fashionhub/
+    volumes:
+      - ./playwright-report:/app/playwright-report
+      - ./test-results:/app/test-results
+      - ./reports:/app/reports
