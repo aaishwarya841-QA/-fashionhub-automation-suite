@@ -1,0 +1,17 @@
+{
+  "default": "local",
+  "environments": {
+    "local": {
+      "baseUrl": "http://localhost:4000/fashionhub/",
+      "description": "Local Docker container run of the FashionHub demo app"
+    },
+    "staging": {
+      "baseUrl": "https://staging-env/fashionhub/",
+      "description": "Dummy staging environment (placeholder host, override via BASE_URL when real)"
+    },
+    "production": {
+      "baseUrl": "https://pocketaces2.github.io/fashionhub/",
+      "description": "Public production deployment on GitHub Pages"
+    }
+  }
+}
