@@ -1,0 +1,25 @@
+{
+  "name": "fashionhub-automation-suite",
+  "version": "1.0.0",
+  "description": "Cross-browser, multi-environment automated test suite for FashionHub demo app",
+  "private": true,
+  "scripts": {
+    "build": "tsc --noEmit",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:local": "TEST_ENV=local playwright test",
+    "test:staging": "TEST_ENV=staging playwright test",
+    "test:production": "TEST_ENV=production playwright test",
+    "test:console-errors": "playwright test tests/console-errors.spec.ts",
+    "test:link-status": "playwright test tests/link-status.spec.ts",
+    "test:login": "playwright test tests/login.spec.ts",
+    "fetch-prs": "ts-node scripts/fetch-open-prs.ts",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.0",
+    "@types/node": "^20.14.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.0"
+  }
+}
