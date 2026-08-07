@@ -1,0 +1,11 @@
+# FashionHub Automation Suite
+
+Cross-browser, multi-environment Playwright test suite for the FashionHub demo app, built for the QA Engineer technical challenge.
+
+## Stack
+
+- **Playwright Test** + **TypeScript** — chosen over Cypress because it drives real Chromium, Firefox *and* WebKit out of the box (native cross-browser support, no plugin needed), has a first-class API request context for the link-status checks, and its official Docker image already bundles all three browser engines.
+- Node.js 18+ (uses the built-in `fetch` API for Test Case 4)
+
+## Project structure
+
